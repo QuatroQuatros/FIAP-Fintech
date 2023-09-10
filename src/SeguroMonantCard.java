@@ -1,3 +1,5 @@
+//import java.util.Scanner;
+
 public class SeguroMonantCard extends Servico{
     //atributos
     public int idSeguroMonantCard;
@@ -13,6 +15,7 @@ public class SeguroMonantCard extends Servico{
         this.taxaAnuidade = taxaAnuidade;
     }
 
+    //Getters e Setters
     public int getidSeguroMonantCard() {
         return idSeguroMonantCard;
     }
@@ -45,13 +48,41 @@ public class SeguroMonantCard extends Servico{
         this.taxaAnuidade = taxaAnuidade;
     }
 
-    //métodos
-    protected boolean AtivarSeguro(int idSeguroMonantCard) {
-        return true;
+    //métodos herdados
+    @Override
+    protected void contratar(int idSeguroMonantCard) {
+        if (idSeguroMonantCard != 0) {
+            super.contratar(idSeguroMonantCard);
+            System.out.println("Contratando seguro do Cartão Monant...");
+        }else{
+            System.out.println("Seguro já contratado");
+        }
     }
 
-    protected boolean CancelarSeguro(int idSeguroMonantCard) {
-        return false;
-    }
+    @Override
+    protected void cancelar(int idSeguroMonantCard) {
+        //String res;
 
+        if(idSeguroMonantCard != 0) {
+            super.cancelar(idSeguroMonantCard);
+            System.out.println("Cancelando Seguro do Cartão Monant...");
+        }else{
+            System.out.println("Seguro ainda não contratado...");
+            System.out.println("Deseja contratar [SIM - S] \n\n [NÃO - N]");
+            
+            //res = scanner.nextLine();
+        }
+        // if (res.equalsIgnoreCase("S")) {
+        //     System.out.println("Você escolheu SIM\n Contratando Serviço...");
+        //     contratar(idSeguroMonantCard);
+
+        // } else if (res.equalsIgnoreCase("N")) {
+        //     System.out.println("Você escolheu NÃO");
+        // } else {
+        //     System.out.println("Resposta inválida.");
+        // }
+
+        // scanner.close();
+
+    }
 }
