@@ -1,8 +1,8 @@
 public class ContaBancaria {
-    int id_perfil;
-    String numero_conta;
-    String numero_agencia_conta;
-    double saldo_conta;
+    private int id_perfil;
+    private String numero_conta;
+    private String numero_agencia_conta;
+    private double saldo_conta;
 
     public ContaBancaria (int id_perfil, String numero_conta, String numero_agencia_conta, double saldo_conta) {
         this.id_perfil = id_perfil;
