@@ -1,4 +1,4 @@
-public class SeguroMonantCard {
+public class SeguroMonantCard extends Servico{
     //atributos
     public int idSeguroMonantCard;
     public String tipoCartao;
