@@ -9,7 +9,7 @@ public class Cartao {
 	private int cvc;
 	private double anuidade;
 	private Date dataValidade;
-	private boolean tipoCartao;
+	private TipoCartao tipoCartao;
 	private boolean status;
 	
 	
@@ -20,7 +20,7 @@ public class Cartao {
 
 
 	public Cartao(int idCartao, int idContaBancaria, String nomeTitular, String numeroCartao, int cvc, double anuidade,
-			Date dataValidade, boolean tipoCartao, boolean status) {
+			Date dataValidade, TipoCartao tipoCartao, boolean status) {
 		super();
 		this.idCartao = idCartao;
 		this.idContaBancaria = idContaBancaria;
@@ -104,12 +104,12 @@ public class Cartao {
 	}
 
 
-	public boolean getTipoCartao() {
+	public TipoCartao getTipoCartao() {
 		return tipoCartao;
 	}
 
 
-	public void setTipoCartao(boolean tipoCartao) {
+	public void setTipoCartao(TipoCartao tipoCartao) {
 		this.tipoCartao = tipoCartao;
 	}
 
@@ -125,23 +125,23 @@ public class Cartao {
 	
 	//Metodos das classes
 	
-	public String bloquearCartao() {
+	protected String bloquearCartao() {
         return "Cartão bloqueado com sucesso";
     }
 
-    public String validarDados(String dados) {
+	protected String validarDados(String dados) {
         return "Dados validados com sucesso";
     }
 
-    public boolean ativarAproximacao() {
+	protected boolean ativarAproximacao() {
         return true;
     }
 
-    public boolean alterarSenha() {
+	protected boolean alterarSenha() {
         return true;
     }
 
-    public void solicitarCartaoFisico() {
+	protected void solicitarCartaoFisico() {
     }
 
 
@@ -153,3 +153,5 @@ public class Cartao {
 
 	
 }
+
+

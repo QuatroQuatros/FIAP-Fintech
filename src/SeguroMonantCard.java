@@ -49,22 +49,20 @@ public class SeguroMonantCard extends Servico{
     }
 
     //métodos herdados
-    @Override
-    protected void contratar(int idSeguroMonantCard) {
-        if (idSeguroMonantCard != 0) {
-            super.contratar(idSeguroMonantCard);
+    public void contratar() {
+        if (this.idSeguroMonantCard != 0) {
+            super.contratar(this.idSeguroMonantCard);
             System.out.println("Contratando seguro do Cartão Monant...");
         }else{
             System.out.println("Seguro já contratado");
         }
     }
 
-    @Override
-    protected void cancelar(int idSeguroMonantCard) {
+    public void cancelar() {
         //String res;
 
-        if(idSeguroMonantCard != 0) {
-            super.cancelar(idSeguroMonantCard);
+        if(this.idSeguroMonantCard != 0) {
+            super.cancelar(this.idSeguroMonantCard);
             System.out.println("Cancelando Seguro do Cartão Monant...");
         }else{
             System.out.println("Seguro ainda não contratado...");
