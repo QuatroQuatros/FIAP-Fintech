@@ -28,7 +28,7 @@ public class Main {
 		
 		List<Servico> listaDeServicos = new ArrayList<>();
 		ServiçoCarteiraAtivos serviço1 = new ServiçoCarteiraAtivos(1, "Serviço batata", 4444, 2.0, "serviço do tipo batata", "Corretora1", "Ativo1");
-		ServiçoCarteiraAtivos serviço2 = new ServiçoCarteiraAtivos(2, "Serviço pepino", 555, 1.0, "serviço do tipo pepino", "Corretora2", "Ativo2");
+		ServicoBolsaValores serviço2 = new ServicoBolsaValores(2, "Serviço pepino", 555, 1.0, "serviço do tipo pepino", "Corretora2", "Ativo2", 0.4);
 		ServiçoCarteiraAtivos serviço3 = new ServiçoCarteiraAtivos(3, "Serviço tomate", 33, 1.0, "serviço do tipo tomate", "Corretora3", "Ativo3");
 				
 		listaDeServicos.add(serviço1);
