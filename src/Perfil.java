@@ -8,6 +8,7 @@ public class Perfil {
 	private String cpf;
 	private String data_nascimento;
 	private int tipo_perfil;
+	private ContaBancaria conta;
 	
 	
 	//Construtores
@@ -17,7 +18,7 @@ public class Perfil {
 	
 	public Perfil(int id, int id_usuario, String apelido, String nome, String sobrenome, String cpf, String data_nascimento, int tipo_perfil) {
 	    this.id = id;
-	    this.id_usuario = id_usuario;
+		this.id_usuario = id_usuario;
 	    this.apelido = apelido;
 	    this.nome = nome;
 	    this.sobrenome = sobrenome;
@@ -26,8 +27,9 @@ public class Perfil {
 	    this.tipo_perfil = tipo_perfil;
 	}
 	
-	public Perfil(int id, String apelido, String nome, String sobrenome) {
+	public Perfil(int id, int id_usuario, String apelido, String nome, String sobrenome) {
 	    this.id = id;
+	    this.id_usuario = id_usuario;
 	    this.apelido = apelido;
 	    this.nome = nome;
 	    this.sobrenome = sobrenome;
@@ -99,5 +101,20 @@ public class Perfil {
 	public void setTipo_perfil(int tipo_perfil) {
 		this.tipo_perfil = tipo_perfil;
 	}
+	
+	public ContaBancaria getConta() {
+		return conta;
+	}
+
+	public void setConta(ContaBancaria conta) {
+		this.conta = conta;
+	}
+	
+	@Override
+    public String toString() {
+        return "Perfil [\n"+ "id= " + id + "\nid_usuario= " + id_usuario + "\napelido= " + apelido + "\nnome= " + nome + "\nsobrenome= " + sobrenome + "\ncpf= " + cpf + "\ndata_nascimento= " + data_nascimento + "\ntipo_perfil= " + tipo_perfil + "\n]";
+    }
+
+
 
 }

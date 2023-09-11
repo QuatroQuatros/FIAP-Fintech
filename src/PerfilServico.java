@@ -1,14 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 public class PerfilServico {
 	
 	//Atributos
-	private int id_perfil;
-	private int id_servico;
-	private String data_contratacao;
-	private String data_encerramento;
-	private List<Servico> listaDeServicos = new ArrayList<>();
+	private int id;
+	private List<Servico> listaDeServicos;
+	private Perfil perfil;
 	
 	
 	//Construtores
@@ -16,11 +15,16 @@ public class PerfilServico {
 		
 	}
 	
-	public PerfilServico(int id_perfil, int id_servico, String data_contratacao, String data_encerramento) {
-		this.id_perfil = id_perfil;
-		this.id_servico = id_servico;
-		this.data_contratacao = data_contratacao;
-		this.data_encerramento = data_encerramento;
+	public PerfilServico(int id, List<Servico> listaDeServicos, Perfil perfil) {
+		this.id = id;
+		this.listaDeServicos = listaDeServicos;
+		this.perfil = perfil;
+	}
+	
+	public PerfilServico(int id, Perfil perfil) {
+		this.id = id;
+		this.listaDeServicos = new ArrayList<>();
+		this.perfil = perfil;
 	}
 	
 	
@@ -30,34 +34,15 @@ public class PerfilServico {
 		return this.listaDeServicos;
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	//Getters e Setters
-	public int getId_perfil() {
-		return id_perfil;
-	}
-
-	public void setId_perfil(int id_perfil) {
-		this.id_perfil = id_perfil;
-	}
-	
-	public int getId_servico() {
-		return id_servico;
-	}
-	public void setId_servico(int id_servico) {
-		this.id_servico = id_servico;
-	}
-	public String getData_contratacao() {
-		return data_contratacao;
-	}
-	public void setData_contratacao(String data_contratacao) {
-		this.data_contratacao = data_contratacao;
-	}
-	public String getData_encerramento() {
-		return data_encerramento;
-	}
-	public void setData_encerramento(String data_encerramento) {
-		this.data_encerramento = data_encerramento;
-	}
-
 	public List<Servico> getListaDeServicos() {
 		return listaDeServicos;
 	}
@@ -65,6 +50,23 @@ public class PerfilServico {
 	public void setListaDeServicos(List<Servico> listaDeServicos) {
 		this.listaDeServicos = listaDeServicos;
 	}
+	
+	public Perfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
+	}
+
+	public void setServicoInListaDeServicos(Servico servico) {
+		this.listaDeServicos.add(servico);
+	}
+	
+	@Override
+    public String toString() {
+        return "PerfilServiço [\n"+ "id= " + id + "\nid_perfil= " + perfil.getId() + "\nlistaDeServicos= " + listaDeServicos + "\n]";
+    }
 
 
 

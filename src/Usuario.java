@@ -6,6 +6,7 @@ public class Usuario {
 	private String email;
 	private String senha;
 	private Boolean status;
+	private Perfil perfil;
 	
 	
 	//Construtores
@@ -16,6 +17,7 @@ public class Usuario {
 		this.email = email;
 		this.senha = senha;
 		this.status = status;
+		this.perfil = new Perfil(); 
 	}
 	
 	public Usuario() {
@@ -82,6 +84,20 @@ public class Usuario {
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
+	
+	public Perfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
+	}
+
+	@Override
+    public String toString() {
+        return "Usuario [\n"+ "id= " + id + "\nnome= " + nome + "\nemail= " + email + "\nstatus= " + status + "\n]";
+    }
+
 
 
 	
