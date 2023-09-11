@@ -7,6 +7,8 @@ public class Cartao {
 	private String nomeTitular;
 	private String numeroCartao;	
 	private String senhaCartao;
+	private double limiteTotal;
+	private double limiteUsado;
 	private int cvc;
 	private double anuidade;
 	private Date dataValidade;
@@ -23,6 +25,25 @@ public class Cartao {
 	}
 
 
+	public Cartao(int idCartao, int idContaBancaria, String nomeTitular, String senhaCartao, double limiteTotal, double limiteUsado, String numeroCartao, int cvc, double anuidade,
+			Date dataValidade, TipoCartao tipoCartao, boolean status, boolean isApproximation, ContaBancaria conta) {
+		super();
+		this.idCartao = idCartao;
+		this.idContaBancaria = idContaBancaria;
+		this.nomeTitular = nomeTitular;
+		this.senhaCartao = senhaCartao;
+		this.limiteTotal = limiteTotal;
+		this.limiteUsado = limiteUsado;
+		this.limiteTotal = limiteTotal;
+		this.cvc = cvc;
+		this.anuidade = anuidade;
+		this.dataValidade = dataValidade;
+		this.tipoCartao = tipoCartao;
+		this.status = status;
+		this.isApproximation = isApproximation;
+		this.setConta(conta);
+	}
+	
 	public Cartao(int idCartao, int idContaBancaria, String nomeTitular, String senhaCartao, String numeroCartao, int cvc, double anuidade,
 			Date dataValidade, TipoCartao tipoCartao, boolean status, boolean isApproximation, ContaBancaria conta) {
 		super();
@@ -30,6 +51,8 @@ public class Cartao {
 		this.idContaBancaria = idContaBancaria;
 		this.nomeTitular = nomeTitular;
 		this.senhaCartao = senhaCartao;
+		this.limiteTotal = 0.0;
+		this.limiteUsado = 0.0;
 		this.numeroCartao = numeroCartao;
 		this.cvc = cvc;
 		this.anuidade = anuidade;
@@ -39,6 +62,7 @@ public class Cartao {
 		this.isApproximation = isApproximation;
 		this.setConta(conta);
 	}
+
 
     //Acessores
 	public int getIdCartao() {
@@ -91,6 +115,26 @@ public class Cartao {
 	}
 
 
+	public double getLimiteTotal() {
+		return limiteTotal;
+	}
+
+
+	public void setLimiteTotal(double limite) {
+		this.limiteTotal = limite;
+	}
+
+
+	public double getLimiteUsado() {
+		return limiteUsado;
+	}
+
+
+	public void setLimiteUsado(double limiteUsado) {
+		this.limiteUsado = limiteUsado;
+	}
+
+
 	public int getCvc() {
 		return cvc;
 	}
@@ -140,7 +184,6 @@ public class Cartao {
 		this.status = status;
 	}
 	
-	//Metodos das classes
 	
 	public boolean isApproximation() {
 		return isApproximation;
@@ -160,7 +203,9 @@ public class Cartao {
 	public void setConta(ContaBancaria conta) {
 		this.conta = conta;
 	}
-
+	
+	//Metodos das classes
+	
 
 	protected void bloquearCartao() {
         this.status = false;
@@ -185,6 +230,12 @@ public class Cartao {
 	protected void desativarAproximacao() {
         this.isApproximation = false;
     }
+	
+	
+	
+	protected String solicitarAumento(double valor) {
+		return "Solicitação de aumento de limite enviado";
+	}
 
 	protected void solicitarCartaoFisico() {
     }

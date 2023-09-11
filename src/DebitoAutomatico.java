@@ -35,6 +35,10 @@ class DebitoAutomatico {
 		 Transacao transacao = new Transacao(id, numero_conta, digito_conta, numero_conta_envio, digito_conta_envio, valor, tipo_transacao, saldo_old, saldo_new);
 		 conta.addTransacao(transacao);
     }
+    
+	public static boolean cancelarDebitoAutomatico() {
+        return false;
+    }
 
     public int getId() {
         return id;
@@ -84,7 +88,5 @@ class DebitoAutomatico {
 		this.conta = conta;
 	}
 
-	public static boolean cancelarDebitoAutomatico() {
-        return false;
-    }
+
 }

@@ -50,11 +50,11 @@ public class ContaBancaria {
         this.cartoes = new ArrayList<>();
     }
 
-    public String visualiza_conta(String Contabancaria) {
-        return numero_conta;
+    protected ContaBancaria visualiza_conta() {
+        return this;
     }
 
-    public void sacar_dinheiro(double valor) {
+    protected void sacar_dinheiro(double valor) {
         if (saldo_conta >= valor && this.status == true) {
         	Transacao saque = new Transacao(id, numero_conta, digito_conta, numero_conta, digito_conta, valor, TipoTransacao.Débito, saldo_conta, saldo_conta-valor);
         	saldo_conta -= valor;
@@ -64,7 +64,7 @@ public class ContaBancaria {
         }
     }
 
-    public void depositar(double valor) {
+    protected void depositar(double valor) {
     	if(this.status == true) {
     		Transacao deposito = new Transacao(id, numero_conta, digito_conta, numero_conta, digito_conta, valor, TipoTransacao.Crédito, saldo_conta, saldo_conta+valor);
         	saldo_conta += valor;
@@ -90,22 +90,18 @@ public class ContaBancaria {
     	 }
     }
 
-    public List<Transacao> extrato_conta() {
+    protected List<Transacao> extrato_conta() {
         return this.transacoes;
 
     }
 
-    public void bloquear_conta() {
+    protected void bloquear_conta() {
         this.status = false;
     }
    
-   public void desbloquear_conta() {
+    protected void desbloquear_conta() {
        this.status = true;
    }
-   
-   public String abrir_conta() {
-        return "Abertura de conta efetuada com sucesso";
-    }
     
 	public int getId() {
 		return id;
