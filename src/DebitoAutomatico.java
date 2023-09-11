@@ -1,4 +1,6 @@
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DebitoAutomatico {
@@ -95,15 +97,24 @@ public class DebitoAutomatico {
 	}
 
 
-
 	public void setTipoMoeda(char tipoMoeda) {
 		this.tipoMoeda = tipoMoeda;
 	}
-	public static List<DebitoAutomatico> consultarDebitoData() {
-        return null;
+
+	//métodos
+	protected static List<DebitoAutomatico> consultarDebitoData(Date data) {
+		List<DebitoAutomatico> debitosFiltrados = new ArrayList<>();
+
+		for (DebitoAutomatico debito : listaDebitos) {
+			if (debito.getDataPagamento().equals(data)) {
+				debitosFiltrados.add(debito);
+			}
+		}
+        return debitosFiltrados;
     }
 
-    public static void consultarMoeda() {
+    protected static void consultarMoeda() {
+		
     }
 
     public static boolean atribuirMoeda() {
