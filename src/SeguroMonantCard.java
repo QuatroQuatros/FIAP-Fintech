@@ -47,5 +47,6 @@ public class SeguroMonantCard extends Servico{
     public void setTaxaAnuidade(double taxaAnuidade){
         this.taxaAnuidade = taxaAnuidade;
     }
-
+  
 }
+
