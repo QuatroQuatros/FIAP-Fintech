@@ -1,5 +1,5 @@
 
 public enum TipoCartao {
-	Débito,
-	Crédito
+	DEBITO,
+	CREDITO
 }

@@ -1,18 +1,41 @@
-//import java.util.Scanner;
+import java.util.Date;
 
 public class SeguroMonantCard extends Servico{
     //atributos
-    public int idSeguroMonantCard;
-    public String tipoCartao;
-    public String apelidoCartao;
-    public double taxaAnuidade;
+    private int idSeguroMonantCard;
+    private String apelidoCartao;
+    private double taxaAnuidade;
+    private MonantCard card;
 
     //construtores
-    public SeguroMonantCard(int idSeguroMonantCard, String tipoCartao, String apelidoCartao, double taxaAnuidade){
+ 
+    public SeguroMonantCard(int id_servico, String nome_servico, double valor_servico, double taxa_servico, String tipo_servico, 
+    		Date data_contratacao, Date data_encerramento, int idSeguroMonantCard, String apelidoCartao, double taxaAnuidade, MonantCard card){
+    	super(id_servico, nome_servico, valor_servico, taxa_servico, tipo_servico, data_contratacao, data_encerramento);
         this.idSeguroMonantCard = idSeguroMonantCard;
-        this.tipoCartao = tipoCartao;
+        this.card = card;
         this.apelidoCartao = apelidoCartao;
         this.taxaAnuidade = taxaAnuidade;
+    }
+    
+    public SeguroMonantCard(int id_servico, String nome_servico, double valor_servico, double taxa_servico, String tipo_servico, 
+    		Date data_contratacao, int idSeguroMonantCard, String apelidoCartao, double taxaAnuidade, MonantCard card){
+    	super(id_servico, nome_servico, valor_servico, taxa_servico, tipo_servico, data_contratacao);
+        this.idSeguroMonantCard = idSeguroMonantCard;
+        this.card = card;
+        this.apelidoCartao = apelidoCartao;
+        this.taxaAnuidade = taxaAnuidade;
+    }
+    
+    public SeguroMonantCard(int id_servico, String nome_servico, double valor_servico, double taxa_servico, String tipo_servico, 
+    		int idSeguroMonantCard, String apelidoCartao, double taxaAnuidade, MonantCard card){
+    	super(id_servico, nome_servico, valor_servico, taxa_servico, tipo_servico);
+        this.idSeguroMonantCard = idSeguroMonantCard;
+        this.card = card;
+        this.apelidoCartao = apelidoCartao;
+        this.taxaAnuidade = taxaAnuidade;
+        
+        
     }
 
     //Getters e Setters
@@ -22,14 +45,6 @@ public class SeguroMonantCard extends Servico{
 
     public void setidSeguroMonantCard(int idSeguroMonantCard) {
         this.idSeguroMonantCard = idSeguroMonantCard;
-    }
-
-    public String getTipoCartao() {
-        return tipoCartao;
-    }
-
-    public void setTipoCartao(String tipoCartao) {
-        this.tipoCartao = tipoCartao;
     }
 
     public String getApelidoCartao() {
@@ -47,6 +62,31 @@ public class SeguroMonantCard extends Servico{
     public void setTaxaAnuidade(double taxaAnuidade){
         this.taxaAnuidade = taxaAnuidade;
     }
+
+	public MonantCard getCard() {
+		return card;
+	}
+
+	public void setCard(MonantCard card) {
+		this.card = card;
+	}
+	
+	   @Override
+	    public String toString() {
+	        return "SeguroMonantCard [\n" +
+	                "idSeguroMonantCard=" + idSeguroMonantCard + "\n" +
+	                "apelidoCartao=" + apelidoCartao + "\n" +
+	                "taxaAnuidade=" + taxaAnuidade + "\n" +
+	                "card=" + card.toString() + "\n" +
+	                "id_servico=" + getId_servico() + "\n" +
+	                "nome_servico=" + getNome_servico() + "\n" +
+	                "valor_servico=" + getValor_servico() + "\n" +
+	                "taxa_servico=" + getTaxa_servico() + "\n" +
+	                "tipo_servico=" + getTipo_servico() + "\n" +
+	                "data_contratacao=" + getData_contratacao() + "\n" +
+	                "data_encerramento=" + getData_encerramento() + "\n" +
+	                "]";
+	    }
   
 }
 

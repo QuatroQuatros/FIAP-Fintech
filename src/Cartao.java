@@ -5,12 +5,16 @@ public class Cartao {
 	private int idCartao;
 	private int idContaBancaria;
 	private String nomeTitular;
-	private String numeroCartao;
+	private String numeroCartao;	
+	private String senhaCartao;
 	private int cvc;
 	private double anuidade;
 	private Date dataValidade;
 	private TipoCartao tipoCartao;
 	private boolean status;
+	private boolean isApproximation;
+	private ContaBancaria conta;
+
 	
 	
 	//Construtores
@@ -19,18 +23,21 @@ public class Cartao {
 	}
 
 
-	public Cartao(int idCartao, int idContaBancaria, String nomeTitular, String numeroCartao, int cvc, double anuidade,
-			Date dataValidade, TipoCartao tipoCartao, boolean status) {
+	public Cartao(int idCartao, int idContaBancaria, String nomeTitular, String senhaCartao, String numeroCartao, int cvc, double anuidade,
+			Date dataValidade, TipoCartao tipoCartao, boolean status, boolean isApproximation, ContaBancaria conta) {
 		super();
 		this.idCartao = idCartao;
 		this.idContaBancaria = idContaBancaria;
 		this.nomeTitular = nomeTitular;
+		this.senhaCartao = senhaCartao;
 		this.numeroCartao = numeroCartao;
 		this.cvc = cvc;
 		this.anuidade = anuidade;
 		this.dataValidade = dataValidade;
 		this.tipoCartao = tipoCartao;
 		this.status = status;
+		this.isApproximation = isApproximation;
+		this.setConta(conta);
 	}
 
     //Acessores
@@ -71,6 +78,16 @@ public class Cartao {
 
 	public void setNumeroCartao(String numeroCartao) {
 		this.numeroCartao = numeroCartao;
+	}
+
+
+	public String getSenhaCartao() {
+		return senhaCartao;
+	}
+
+
+	public void setSenhaCartao(String senhaCartao) {
+		this.senhaCartao = senhaCartao;
 	}
 
 
@@ -125,20 +142,48 @@ public class Cartao {
 	
 	//Metodos das classes
 	
-	protected String bloquearCartao() {
-        return "Cartão bloqueado com sucesso";
+	public boolean isApproximation() {
+		return isApproximation;
+	}
+
+
+	public void setApproximation(boolean isApproximation) {
+		this.isApproximation = isApproximation;
+	}
+
+
+	public ContaBancaria getConta() {
+		return conta;
+	}
+
+
+	public void setConta(ContaBancaria conta) {
+		this.conta = conta;
+	}
+
+
+	protected void bloquearCartao() {
+        this.status = false;
+    }
+	
+	protected void desbloquearCartao() {
+        this.status = true;
     }
 
-	protected String validarDados(String dados) {
-        return "Dados validados com sucesso";
+	protected boolean validarDados(String dados) {
+		if(this.status) {
+			return true;
+		}
+		return false;
+        
     }
 
-	protected boolean ativarAproximacao() {
-        return true;
+	protected void ativarAproximacao() {
+        this.isApproximation = true;
     }
-
-	protected boolean alterarSenha() {
-        return true;
+	
+	protected void desativarAproximacao() {
+        this.isApproximation = false;
     }
 
 	protected void solicitarCartaoFisico() {
@@ -147,9 +192,20 @@ public class Cartao {
 
 	@Override
 	public String toString() {
-		return "Cartao [nomeTitular=" + nomeTitular + ", numeroCartao=" + numeroCartao + "]";
+	    return "Cartao [\n" +
+	           "idCartao=" + idCartao + "\n" +
+	           "idContaBancaria=" + idContaBancaria + "\n" +
+	           "nomeTitular=" + nomeTitular + "\n" +
+	           "numeroCartao=" + numeroCartao + "\n" +
+	           "senhaCartao=" + senhaCartao + "\n" +
+	           "cvc=" + cvc + "\n" +
+	           "anuidade=" + anuidade + "\n" +
+	           "dataValidade=" + dataValidade + "\n" +
+	           "tipoCartao=" + tipoCartao + "\n" +
+	           "status=" + status + "\n" +
+	           "isApproximation=" + isApproximation + "\n" +
+	           "]";
 	}
-	
 
 	
 }

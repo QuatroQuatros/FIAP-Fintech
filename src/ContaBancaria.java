@@ -10,12 +10,13 @@ public class ContaBancaria {
     private double saldo_conta;
     private List<Transacao> transacoes;
     private boolean status;
+    private List<Cartao> cartoes;
     
     public ContaBancaria(){
     	
     }
     
-    public ContaBancaria (int id, int id_perfil, String numero_conta, String digito_conta, String numero_agencia_conta, List<Transacao> transacoes, boolean status) {
+    public ContaBancaria (int id, int id_perfil, String numero_conta, String digito_conta, String numero_agencia_conta, List<Transacao> transacoes, boolean status, List<Cartao> cartoes) {
     	this.id = id;
         this.id_perfil = id_perfil;
         this.numero_conta = numero_conta;
@@ -23,6 +24,7 @@ public class ContaBancaria {
         this.numero_agencia_conta = numero_agencia_conta;
         this.transacoes = transacoes;
         this.status = status;
+        this.cartoes = cartoes;
     }
     
     public ContaBancaria (int id, int id_perfil, String numero_conta, String digito_conta, String numero_agencia_conta, boolean status) {
@@ -33,6 +35,7 @@ public class ContaBancaria {
         this.numero_agencia_conta = numero_agencia_conta;
         this.transacoes = new ArrayList<>();
         this.status = status;
+        this.cartoes = new ArrayList<>();
     }
 
     public ContaBancaria (int id, int id_perfil, String numero_conta, String digito_conta, String numero_agencia_conta, double saldo_conta, boolean status) {
@@ -44,6 +47,7 @@ public class ContaBancaria {
         this.saldo_conta = saldo_conta;
         this.transacoes = new ArrayList<>();
         this.status = status;
+        this.cartoes = new ArrayList<>();
     }
 
     public String visualiza_conta(String Contabancaria) {
@@ -161,10 +165,21 @@ public class ContaBancaria {
 		this.transacoes = transacoes;
 	}
 	
+	public List<Cartao> getCartoes() {
+		return cartoes;
+	}
+
+	public void setCartoes(List<Cartao> cartoes) {
+		this.cartoes = cartoes;
+	}
+
 	public void addTransacao(Transacao transacao) {
 		this.transacoes.add(transacao);
 	}
 
+	public void addCartao(Cartao cartao) {
+		this.cartoes.add(cartao);
+	}
 	public boolean isStatus() {
 		return status;
 	}
@@ -173,9 +188,24 @@ public class ContaBancaria {
 		this.status = status;
 	}
 
+//	@Override
+//    public String toString() {
+//        return "Conta [\n"+ "id= " + id + "\nid_perfil= " + id_perfil + "\nnumero_conta= " + numero_conta + "\ndigito_conta= " + digito_conta + "\nnumero_agencia_conta= " + numero_agencia_conta + "\nsaldo_conta= " + saldo_conta + "\ntransacoes= " + transacoes + "\nstatus= " + status + "\ncartoes= " + cartoes + "\n]";
+//    }
+	
 	@Override
     public String toString() {
-        return "Conta [\n"+ "id= " + id + "\nid_perfil= " + id_perfil + "\nnumero_conta= " + numero_conta + "\ndigito_conta= " + digito_conta + "\nnumero_agencia_conta= " + numero_agencia_conta + "\nsaldo_conta= " + saldo_conta + "\ntransacoes= " + transacoes + "\n]";
+        return "ContaBancaria [\n" +
+                "id=" + id + "\n" +
+                "id_perfil=" + id_perfil + "\n" +
+                "numero_conta=" + numero_conta + "\n" +
+                "digito_conta=" + digito_conta + "\n" +
+                "numero_agencia_conta=" + numero_agencia_conta + "\n" +
+                "saldo_conta=" + saldo_conta + "\n" +
+                "transacoes=" + transacoes + "\n" +
+                "status=" + status + "\n" +
+                "cartoes=" + cartoes + "\n" +
+                "]";
     }
 
 

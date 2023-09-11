@@ -1,4 +1,7 @@
 import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Main {
 
@@ -39,29 +42,73 @@ public class Main {
 		db.realizarDebitoAutomatico();
 		
 		conta.extrato_conta();
-        
-		System.out.println(perfil.getConta());
 		
-//		List<Servico> listaDeServicos = new ArrayList<>();
-//		ServiçoCarteiraAtivos serviço1 = new ServiçoCarteiraAtivos(1, "Serviço batata", 4444, 2.0, "serviço do tipo batata", "Corretora1", "Ativo1");
-//		ServicoBolsaValores serviço2 = new ServicoBolsaValores(2, "Serviço pepino", 555, 1.0, "serviço do tipo pepino", "Corretora2", "Ativo2", 0.4);
-//		ServiçoCarteiraAtivos serviço3 = new ServiçoCarteiraAtivos(3, "Serviço tomate", 33, 1.0, "serviço do tipo tomate", "Corretora3", "Ativo3");
-//				
-//		listaDeServicos.add(serviço1);
-//        listaDeServicos.add(serviço2);
-//        listaDeServicos.add(serviço3);
-//        
-//		serviço1.contratar();
-//		serviço2.contratar();
-//		serviço3.contratar();
-//        
-//        serviço3.cancelar();
-//        
-//        Date dataAtual = new Date();
-//        
-//        PerfilServico perfilServico = new PerfilServico(1, listaDeServicos, perfil);
-//        
-//		System.out.println(perfilServico);
+        Cartao cartao1 = new Cartao(1, 1001, "João Silva", "1234", "1234567890123456", 123, 50.0,
+                new Date(), TipoCartao.CREDITO, true, true, conta);
+        
+        Cartao cartao2 = new Cartao(2, 1002, "João Silva", "1234", "1234567890123456", 123, 50.0,
+                new Date(), TipoCartao.DEBITO, true, true, conta);
+               
+        // Criando um objeto da classe MonantCard
+        MonantCard monantCard = new MonantCard(101, "Meu Cartão", 2, 1002, "Maria Souza", "5678", "2345678901234567",
+                456, 30.0, new Date(), TipoCartao.DEBITO, true, false, conta);
+        
+        conta.addCartao(cartao1);
+        conta.addCartao(cartao2);
+        conta.addCartao(monantCard);
+        
+        List<Cartao> cartoes = conta.getCartoes();
+        for(Cartao cartao: cartoes) {
+            System.out.println("Nome Titular: " + cartao.getNomeTitular());
+            System.out.println("Número do Cartão: " + cartao.getNumeroCartao());
+            System.out.println("Tipo de Cartão: " + cartao.getTipoCartao());
+            System.out.println("Status: " + (cartao.getStatus() ? "Ativo" : "Inativo"));
+            System.out.println("-----------------------------");
+        }
+        
+        cartao1.desativarAproximacao();
+        cartao2.bloquearCartao();
+//        monantCard.excluirCartao(conta, monantCard);
+        
+//        List<Cartao> cartoes2 = conta.getCartoes();
+//        for(Cartao cartao: cartoes2) {
+//            System.out.println("Nome Titular: " + cartao.getNomeTitular());
+//            System.out.println("Número do Cartão: " + cartao.getNumeroCartao());
+//            System.out.println("Tipo de Cartão: " + cartao.getTipoCartao());
+//            System.out.println("Status: " + (cartao.getStatus() ? "Ativo" : "Inativo"));
+//            System.out.println("-----------------------------");
+//        }
+        
+
+         // Exibindo informações dos objetos
+//
+//        System.out.println("\nInformações do MonantCard:");
+//        System.out.println(monantCard.toString());
+//        System.out.println(perfil.getConta());
+        
+        MonantCard card = new MonantCard(101, "Meu Cartão", 2, 1002, "Maria Souza", "5678", "2345678901234567",
+                456, 30.0, new Date(), TipoCartao.DEBITO, true, false, conta);
+   
+        
+		
+		List<Servico> listaDeServicos = new ArrayList<>();
+		ServiçoCarteiraAtivos serviço1 = new ServiçoCarteiraAtivos(1, "Serviço batata", 4444, 2.0, "serviço do tipo batata", "Corretora1", "Ativo1");
+		ServicoBolsaValores serviço2 = new ServicoBolsaValores(2, "Serviço pepino", 555, 1.0, "serviço do tipo pepino", "Corretora2", "Ativo2", 0.4);
+		SeguroMonantCard serviço3 = new SeguroMonantCard(3, "Serviço tomate", 33.0, 1.0, "serviço do tipo tomate", 1, "cartao teste", 0.4, card);
+				
+		listaDeServicos.add(serviço1);
+        listaDeServicos.add(serviço2);
+        listaDeServicos.add(serviço3);
+        
+		serviço1.contratar();
+		serviço2.contratar();
+		serviço3.contratar();
+        
+        serviço3.cancelar();
+        
+        PerfilServico perfilServico = new PerfilServico(1, listaDeServicos, perfil);
+      
+		System.out.println(perfilServico);
 
 
 	}
