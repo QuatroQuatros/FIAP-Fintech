@@ -1,3 +1,5 @@
+import java.util.Date;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -31,6 +33,12 @@ public class Main {
 		conta.desbloquear_conta();
 
 		conta.transferir(100, "3000", "3");
+		
+		DebitoAutomatico db = new DebitoAutomatico(1, new Date(), 0.5, 100, TipoMoedas.BRL, conta);
+		
+		db.realizarDebitoAutomatico();
+		
+		conta.extrato_conta();
         
 		System.out.println(perfil.getConta());
 		

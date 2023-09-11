@@ -160,6 +160,10 @@ public class ContaBancaria {
 	public void setTransacoes(List<Transacao> transacoes) {
 		this.transacoes = transacoes;
 	}
+	
+	public void addTransacao(Transacao transacao) {
+		this.transacoes.add(transacao);
+	}
 
 	public boolean isStatus() {
 		return status;
