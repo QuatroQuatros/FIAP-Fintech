@@ -48,39 +48,4 @@ public class SeguroMonantCard extends Servico{
         this.taxaAnuidade = taxaAnuidade;
     }
 
-    //métodos herdados
-    public void contratar() {
-        if (this.idSeguroMonantCard != 0) {
-            super.contratar(this.idSeguroMonantCard);
-            System.out.println("Contratando seguro do Cartão Monant...");
-        }else{
-            System.out.println("Seguro já contratado");
-        }
-    }
-
-    public void cancelar() {
-        //String res;
-
-        if(this.idSeguroMonantCard != 0) {
-            super.cancelar(this.idSeguroMonantCard);
-            System.out.println("Cancelando Seguro do Cartão Monant...");
-        }else{
-            System.out.println("Seguro ainda não contratado...");
-            System.out.println("Deseja contratar [SIM - S] \n\n [NÃO - N]");
-            
-            //res = scanner.nextLine();
-        }
-        // if (res.equalsIgnoreCase("S")) {
-        //     System.out.println("Você escolheu SIM\n Contratando Serviço...");
-        //     contratar(idSeguroMonantCard);
-
-        // } else if (res.equalsIgnoreCase("N")) {
-        //     System.out.println("Você escolheu NÃO");
-        // } else {
-        //     System.out.println("Resposta inválida.");
-        // }
-
-        // scanner.close();
-
-    }
 }

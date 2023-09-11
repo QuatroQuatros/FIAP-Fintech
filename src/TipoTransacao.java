@@ -1,5 +1,6 @@
 
 public enum TipoTransacao {
 	Débito,
-	Crédito
+	Crédito,
+	Transferencia
 }
