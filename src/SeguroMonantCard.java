@@ -50,7 +50,7 @@ public class SeguroMonantCard extends Servico{
 
     //métodos herdados
     public void contratar() {
-        if (this.idSeguroMonantCard != 0) {
+        if (this.idSeguroMonantCard == 0) {
             super.contratar(this.idSeguroMonantCard);
             System.out.println("Contratando seguro do Cartão Monant...");
         }else{
