@@ -11,8 +11,6 @@ public class DebitoAutomatico {
 	private double valorPago;
 	private char tipoMoeda;
 	
-	
-	
 	public DebitoAutomatico() {
 		super();
 	}
